@@ -5,7 +5,9 @@ To start the application, run the following command:
 ```bash
 make
 ```
-! unfortunately, running the app using docker on the Apple M1 chip does not work at the moment.
+
+> unfortunately, running the app using docker on the Apple M1 chip does not work at the moment.
+
 You can still install [elm](https://elm-lang.org/) locally and start the application by running the following command:
 ```bash
 make local-app
