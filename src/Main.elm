@@ -1,17 +1,17 @@
 module Main exposing (..)
 
-import Html.Styled exposing (..)
+import Browser
+import Css.Global exposing (global)
+import Html.Styled exposing (Html, toUnstyled, div, main_)
+
 import Components.Budget as Budget
 import Components.Foot as Foot
+import Components.Footer as Footer
 import Components.Header as Header
 import Components.Hero as Hero
-import Components.Footer as Footer
 import Components.Insight as Insight
 import Components.Track as Track
 import Styles.Global as Global
-import Browser
-import Css.Global exposing (global)
-
 
 main : Program () Msg Msg
 main =

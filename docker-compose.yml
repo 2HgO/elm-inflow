@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: elm_inflow
+    image: elm_inflow
+    ports:
+      - 8080:8000
+    restart: unless-stopped

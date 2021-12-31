@@ -1,50 +1,50 @@
 module Styles.Loader exposing (..)
+
 import Css exposing (..)
+import Css.Animations exposing (keyframes)
+import Css.Global exposing (descendants, class, typeSelector)
 import Css.Media exposing (withMediaQuery)
-import Css.Global exposing (descendants, class)
 
 import Styles.Constants exposing (tablet, mobile, laptop, desktop, hfont, purple)
-import Css.Global exposing (typeSelector)
-import Css.Animations exposing (keyframes)
 
 sectionTitle : Style
 sectionTitle =
-  Css.batch
+  batch
     [ fontSize (rem 4)
     , lineHeight (int 1)
     , letterSpacing zero
-    , withMediaQuery [ mobile ]
-        [ fontSize (rem 6) ]
+    , withMediaQuery [ desktop ]
+        [ fontSize (rem 9.6) ]
+    , withMediaQuery [ laptop ]
+        [ fontSize (rem 9) ]
     , withMediaQuery [ tablet ]
         [ fontSize (rem 6.4)
         , lineHeight (int 1)
         , letterSpacing (px -5)
         ]
-    , withMediaQuery [ laptop ]
-        [ fontSize (rem 9) ]
-    , withMediaQuery [ desktop ]
-        [ fontSize (rem 9.6) ]
+    , withMediaQuery [ mobile ]
+        [ fontSize (rem 6) ]
     ]
 
 subTitle : Style
 subTitle =
-  Css.batch
+  batch
     [ hfont
     , fontWeight (int 400)
     , fontSize (rem 2.8)
     , lineHeight (num 1.04)
     , marginBottom (rem 1.5)
+    , withMediaQuery [ laptop ]
+        [ fontSize (rem 4.8) ]
     , withMediaQuery [ tablet ]
         [ fontSize (rem 3.4)
         , marginBottom (rem 2.4)
         ]
-    , withMediaQuery [ laptop ]
-        [ fontSize (rem 4.8) ]
     ]
 
 loaderWrapper : Style
 loaderWrapper =
-  Css.batch
+  batch
     [ position fixed
     , top zero
     , left zero
@@ -60,7 +60,7 @@ loaderWrapper =
 
 svgWrapper : Style
 svgWrapper =
-  Css.batch
+  batch
     [ position relative
     , displayFlex
     , flexDirection column
@@ -93,7 +93,7 @@ svgWrapper =
 
 textWrapper : Style
 textWrapper =
-  Css.batch
+  batch
     [ marginTop (rem 4)
     , textAlign center
     , height (px 30)

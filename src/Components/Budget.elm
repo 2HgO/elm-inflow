@@ -1,11 +1,10 @@
 module Components.Budget exposing (view)
 
-import Css exposing (..)
-import Html.Styled exposing (..)
-import Html.Styled.Attributes exposing (..)
+import Html.Styled exposing (Html, section, div, text, img, h3, ul, li, p, span, h2)
+import Html.Styled.Attributes exposing (css, class, alt, src, style)
 
 import Styles.Home exposing (wrapperX, wrapperYT, wrapperMXWidth, budget, track1, featureWrapper)
-import Styles.Loader exposing (..)
+import Styles.Loader exposing (sectionTitle, subTitle)
 
 bank : String
 bank = "../../public/budget.png"
@@ -32,12 +31,12 @@ view =
 							                money is going. Now, money no go lost.
                           """
                     ]
-            , div [ class "title-image-wrapper" ] [ img [ src bank, alt "Illustration" ] [] ]
+            , div [ class "title-image-wrapper" ] [ span [] [ img [ src bank, alt "Illustration", style "max-height" "100%", style "max-width" "100%" ] [] ] ]
             ]
           , div [ class "main-content", class "budget-content" ]
               [ ul [ class "lists" ]
                   [ li  [ css [ track1 ] ]
-                      [ div [ class "img-holder" ] [ span [] [ img [ src smbank, alt "Illustration", height (pct 100), width (pct 100) ] [] ] ]
+                      [ div [ class "img-holder" ] [ span [] [ img [ src smbank, alt "Illustration", style "max-height" "100%", style "max-width" "100%" ] [] ] ]
                       , h3 [ css [ subTitle ] ] [ text "Intelligent Categorization" ]
                       , p [] [ text """
                                       Inflow's machine learning models automatically sort your
@@ -47,7 +46,7 @@ view =
                               ]
                       ]
                   , li  []
-                      [ div [ class "img-holder" ] [ span [] [ img [ src chart, alt "Illustration", height (pct 100), width (pct 100) ] [] ] ]
+                      [ div [ class "img-holder" ] [ span [] [ img [ src chart, alt "Illustration", style "max-height" "100%", style "max-width" "100%" ] [] ] ]
                       , h3 [ css [ subTitle ] ] [ text "Create custom categories" ]
                       , p [] [ text """
                                       Need to know exactly how much you're spending on car repairs
@@ -57,7 +56,7 @@ view =
                               ]
                       ]
                   ]
-              , div [ class "image-wrapper" ] [ img [ src phonecase, alt "Illustration" ] [] ]
+              , div [ class "image-wrapper" ] [ span [] [ img [ src phonecase, alt "Illustration" ] [] ] ]
               ]
           ]
         ]

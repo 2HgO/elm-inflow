@@ -1,22 +1,22 @@
 module Components.Hero exposing (view)
 
+import Html.Styled exposing (Html, section, div, text, img, a, h2, br, p, span)
+import Html.Styled.Attributes exposing (css, class, alt, src, style, target, rel, href)
 import Svg.Styled exposing (svg, use)
-import Svg.Styled.Attributes as SVGAttributes
-import Html.Styled exposing (..)
-import Html.Styled.Attributes exposing (..)
+import Svg.Styled.Attributes exposing (xlinkHref)
 
-import Styles.Home as HomeStyles
+import Styles.Home exposing (hero, heroWrapper, wrapperX, wrapperMXWidth, forground, downloadLink)
 
 icons : String
 icons = "../../public/icons.svg"
 
-hero : String
-hero = "../../public/p.png"
+heroURL : String
+heroURL = "../../public/p.png"
 
 view : Html msg
 view =
-  section [ css [ HomeStyles.hero ], css [ HomeStyles.wrapperX ] ]
-    [ div [ css [ HomeStyles.heroWrapper ], css [ HomeStyles.wrapperMXWidth ] ]
+  section [ css [ hero ], css [ wrapperX ] ]
+    [ div [ css [ heroWrapper ], css [ wrapperMXWidth ] ]
         [ div [ class "text-content" ]
             [ h2 [] [ text "Where did ", br [] [], text " your money go?" ]
             , p [] [ text """
@@ -25,14 +25,15 @@ view =
                             spending.
                           """
                     ]
-            , div [ css [ HomeStyles.downloadLink ] ]
+            , div [ css [ downloadLink ] ]
                 [ a [ target "_blank", rel "noopener noreferer", href "itms-apps://itunes.apple.com/app/apple-store/id1562191352?mt=8" ]
-                    [ svg [ SVGAttributes.class "" ] [ use [ SVGAttributes.xlinkHref (icons ++ "#ios") ] [] ] ]
+                    [ svg [ ] [ use [ xlinkHref (icons ++ "#ios") ] [] ] ]
                 , a [ target "_blank", rel "noopener noreferer", href "https://play.google.com/store/apps/details?id=com.inflow.android&hl=en" ]
-                    [ svg [ SVGAttributes.class "" ] [ use [ SVGAttributes.xlinkHref (icons ++ "#android") ] [] ] ]
+                    [ svg [ ] [ use [ xlinkHref (icons ++ "#android") ] [] ] ]
                 ]
             ]
         , div [ class "image-wrapper" ]
-            [ img [ src hero, alt "Illustration" ] [] ]
+            [ span [ style "position" "relative", css [ forground ] ]
+                [ img [ src heroURL, alt "Illustration", style "max-height" "100%", style "max-width" "100%" ] [] ] ]
         ]
     ]

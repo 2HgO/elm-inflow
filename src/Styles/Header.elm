@@ -8,7 +8,7 @@ import Styles.Constants exposing (tablet, purple, bfont)
 
 header : Style
 header =
-  Css.batch
+  batch
     [ paddingTop (rem 2)
     , paddingBottom (rem 2)
     , withMediaQuery [ tablet ]
@@ -19,7 +19,7 @@ header =
 
 headerWrapper : Style
 headerWrapper =
-  Css.batch
+  batch
     [ displayFlex
     , justifyContent spaceBetween
     , alignItems center

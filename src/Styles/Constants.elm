@@ -1,6 +1,6 @@
 module Styles.Constants exposing (..)
 
-import Css exposing (..)
+import Css exposing (Px, px, Rem, rem, Style, fontFamilies, qt, sansSerif, Color, hex, rgba)
 
 basefont : Px
 basefont =

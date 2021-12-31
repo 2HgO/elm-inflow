@@ -8,63 +8,63 @@ import Styles.Constants exposing (..)
 
 wrapperMXWidth : Style
 wrapperMXWidth =
-  Css.batch
+  batch
     [ maxWidth (px 1440)
     , margin2 zero auto
     ]
 
 wrapperX : Style
 wrapperX =
-  Css.batch
+  batch
     [ paddingLeft (rem 2)
     , paddingRight (rem 2)
-    , withMediaQuery [ tablet ]
-        [ paddingLeft (rem 5)
-        , paddingRight (rem 5)
-        ]
-    , withMediaQuery [ laptop ]
-        [ paddingLeft (rem 7.5)
-        , paddingRight (rem 7.5)
+    , withMediaQuery [ desktop ]
+        [ paddingLeft (rem 13.5)
+        , paddingRight (rem 13.5)
         ]
     , withMediaQuery [ llaptop ]
         [ paddingLeft (rem 10)
         , paddingRight (rem 10)
         ]
-    , withMediaQuery [ desktop ]
-        [ paddingLeft (rem 13.5)
-        , paddingRight (rem 13.5)
+    , withMediaQuery [ laptop ]
+        [ paddingLeft (rem 7.5)
+        , paddingRight (rem 7.5)
+        ]
+    , withMediaQuery [ tablet ]
+        [ paddingLeft (rem 5)
+        , paddingRight (rem 5)
         ]
     ]
 
 wrapperYT : Style
 wrapperYT =
-  Css.batch
+  batch
     [ paddingTop (rem 5)
-    , withMediaQuery [ tablet ]
-        [ paddingTop (rem 10) ]
-    , withMediaQuery [ laptop ]
-        [ paddingTop (rem 15) ]
     , withMediaQuery [ llaptop ]
         [ paddingTop (rem 20) ]
+    , withMediaQuery [ laptop ]
+        [ paddingTop (rem 15) ]
+    , withMediaQuery [ tablet ]
+        [ paddingTop (rem 10) ]
     ]
 
 hero : Style
 hero =
-  Css.batch
+  batch
     [ position relative ]
 
 heroWrapper : Style
 heroWrapper =
-  Css.batch
+  batch
     [ color (hex "#000")
     , paddingTop (rem 3.5)
+    , withMediaQuery [ llaptop ]
+        [ property "padding" "6.5rem 0" ]
     , withMediaQuery [ tablet ]
         [ displayFlex
         , justifyContent spaceBetween
         , padding2 (rem 4.5) zero
         ]
-    , withMediaQuery [ llaptop ]
-        [ property "padding" "6.5rem 0" ]
     , descendants
         [ class "text-content"
             [ position relative
@@ -78,25 +78,26 @@ heroWrapper =
             , backgroundClip ({ contentBox | value = "text" })
             , property "text-fill-color" "transparent"
             , property "-webkit-text-fill-color" "transparent"
+            , property "-webkit-background-clip" "text"
             , fontSize (rem 4)
             , lineHeight (num 1.2)
             , letterSpacing (px -1)
             , marginBottom (rem 1.8)
             , maxWidth (px 630)
-            , withMediaQuery [ mobile ]
-                [ fontSize (rem 6) ]
+            , withMediaQuery [ desktop ]
+                [ fontSize (rem 9.6) ]
+            , withMediaQuery [ laptop ]
+                [ fontSize (rem 6.5)
+                , letterSpacing (px -5)
+                ]
             , withMediaQuery [ tablet ]
                 [ fontSize (rem 6)
                 , lineHeight (num 1)
                 , letterSpacing (px -3)
                 , maxWidth (px 681)
                 ]
-            , withMediaQuery [ laptop ]
-                [ fontSize (rem 6.5)
-                , letterSpacing (px -5)
-                ]
-            , withMediaQuery [ desktop ]
-                [ fontSize (rem 9.6) ]
+            , withMediaQuery [ mobile ]
+                [ fontSize (rem 6) ]
             ]
         , p
             [ lineHeight (num 1.67)
@@ -114,15 +115,15 @@ heroWrapper =
             , height (px 336)
             , margin2 zero auto
             , marginTop (rem 8.4)
+            , withMediaQuery [ laptop ]
+                [ maxWidth (px 448)
+                , height (px 609)
+                ]
             , withMediaQuery [ tablet ]
                 [ display block
                 , maxWidth (px 350)
                 , height (px 409)
                 , margin zero
-                ]
-            , withMediaQuery [ laptop ]
-                [ maxWidth (px 448)
-                , height (px 609)
                 ]
             , before
                 [ property "content" "\"\""
@@ -148,12 +149,12 @@ heroWrapper =
 
 track1 : Style
 track1 =
-  Css.batch
+  batch
     [ marginBottom (rem 3) ]
 
 budget : Style
 budget =
-  Css.batch
+  batch
     [ descendants
         [ class "title-content"
             [ property "background" "#DDF2FF" ]
@@ -166,6 +167,7 @@ budget =
             , backgroundClip ({ contentBox | value = "text" })
             , property "text-fill-color" "transparent"
             , property "-webkit-text-fill-color" "transparent"
+            , property "-webkit-background-clip" "text"
             ]
         , class "image-wrapper"
             [ property "background" "#FFF0CA"
@@ -176,7 +178,7 @@ budget =
 
 track : Style
 track =
-  Css.batch
+  batch
     [ descendants
         [ class "title-content"
             [ property "background" "#E5FBF2"
@@ -189,6 +191,7 @@ track =
             , backgroundClip ({ contentBox | value = "text" })
             , property "text-fill-color" "transparent"
             , property "-webkit-text-fill-color" "transparent"
+            , property "-webkit-background-clip" "text"
             ]
         , class "image-wrapper"
             [ property "background" "#F1E1FF"
@@ -202,7 +205,7 @@ track =
 
 downloadLink : Style
 downloadLink =
-  Css.batch
+  batch
     [ displayFlex
     , marginTop (rem 1)
     , withMediaQuery [ tablet ] [ marginTop (rem 3) ]
@@ -216,15 +219,15 @@ downloadLink =
         , typeSelector "svg"
             [ width (px 130)
             , height (px 60)
-            , withMediaQuery [ tablet ] [ width (px 153), height (px 64) ]
             , withMediaQuery [ laptop ] [ width (px 188), height (px 61) ]
+            , withMediaQuery [ tablet ] [ width (px 153), height (px 64) ]
             ]
         ]
     ]
 
 insight : Style
 insight =
-  Css.batch
+  batch
     [ descendants
         [ class "title-content" [ property "background" "#F1E1FF", descendants [ typeSelector "p" [ marginBottom zero ] ] ]
         , class "title-image-wrapper" []
@@ -235,6 +238,7 @@ insight =
             , backgroundClip ({ contentBox | value = "text" })
             , property "text-fill-color" "transparent"
             , property "-webkit-text-fill-color" "transparent"
+            , property "-webkit-background-clip" "text"
             ]
         , class "image-wrapper-1"
             [ withMediaQuery [ tablet ] [ marginTop (rem 7) ]
@@ -251,16 +255,18 @@ insight =
 
 inflow : Style
 inflow =
-  Css.batch
+  batch
     [ position relative
     , marginTop (rem 4)
-    , withMediaQuery [ tablet ] [ marginTop (rem 5), marginBottom (rem 10) ]
     , withMediaQuery [ laptop ] [ marginTop (rem 7), marginBottom (rem 13) ]
+    , withMediaQuery [ tablet ] [ marginTop (rem 5), marginBottom (rem 10) ]
     , descendants
         [ class "deco-wrapper" [ property "background" "#F1E1FF", borderRadius (px 24) ]
         , class "inflow-wrapper"
             [ position relative
             , padding (rem 3)
+            , withMediaQuery [ desktop ] [ padding (rem 10) ]
+            , withMediaQuery [ laptop ] [ padding2 (rem 10) (rem 7) ]
             , withMediaQuery [ tablet ]
                 [ padding2 (rem 10) (rem 6)
                 , displayFlex
@@ -268,8 +274,6 @@ inflow =
                 , alignItems center
                 , justifyContent spaceBetween
                 ]
-            , withMediaQuery [ laptop ] [ padding2 (rem 10) (rem 7) ]
-            , withMediaQuery [ desktop ] [ padding (rem 10) ]
             ]
         , class "text-content"
             [ displayFlex
@@ -277,13 +281,13 @@ inflow =
             , alignItems center
             , justifyContent center
             , textAlign center
+            , withMediaQuery [ laptop ] [ width (pct 80) ]
             , withMediaQuery [ tablet ]
                 [ width (pct 50)
                 , alignItems flexStart
                 , justifyContent flexStart
                 , textAlign left
                 ]
-            , withMediaQuery [ laptop ] [ width (pct 80) ]
             , descendants
                 [ h2
                     [ fontSize (rem 3.8)
@@ -294,14 +298,30 @@ inflow =
                     , backgroundClip ({ contentBox | value = "text" })
                     , property "text-fill-color" "transparent"
                     , property "-webkit-text-fill-color" "transparent"
-                    , withMediaQuery [ tablet ] [ maxWidth (px 587), fontSize (rem 4.2) ]
-                    , withMediaQuery [ laptop ] [ fontSize (rem 5) ]
+                    , property "-webkit-background-clip" "text"
                     , withMediaQuery [ llaptop ] [ fontSize (rem 6.4) ]
+                    , withMediaQuery [ laptop ] [ fontSize (rem 5) ]
+                    , withMediaQuery [ tablet ] [ maxWidth (px 587), fontSize (rem 4.2) ]
                     ]
                 ]
             ]
         , class "image-wrapper"
             [ display none
+            , withMediaQuery [ desktop ]
+                [ top (px -100)
+                ]
+            , withMediaQuery [ llaptop ]
+                [ top (pct -23)
+                , right (rem 7.1)
+                ]
+            , withMediaQuery [ laptop ]
+                [ top (pct -23)
+                , right (rem -5.1)
+                ]
+            , withMediaQuery [ slaptop ]
+                [ top (pct -35)
+                , right (rem 7.1)
+                ]
             , withMediaQuery [ tablet ]
                 [ display block
                 , position absolute
@@ -312,28 +332,13 @@ inflow =
                 , height (pct 100)
                 , zIndex (int 5)
                 ]
-            , withMediaQuery [ slaptop ]
-                [ top (pct -35)
-                , right (rem 7.1)
-                ]
-            , withMediaQuery [ laptop ]
-                [ top (pct -23)
-                , right (rem -5.1)
-                ]
-            , withMediaQuery [ llaptop ]
-                [ top (pct -23)
-                , right (rem 7.1)
-                ]
-            , withMediaQuery [ desktop ]
-                [ top (px -100)
-                ]
             ]
         ]
     ]
 
 featureWrapper : Style
 featureWrapper =
-  Css.batch
+  batch
     [ withMediaQuery [ tablet ]
         [ displayFlex
         , flexWrap wrap
@@ -344,6 +349,7 @@ featureWrapper =
             [ padding (rem 2)
             , borderRadius (px 24)
             , overflow hidden
+            , withMediaQuery [ laptop ] [ padding (rem 4) ]
             , withMediaQuery [ tablet ]
                 [ position sticky
                 , top (rem 2)
@@ -351,7 +357,6 @@ featureWrapper =
                 , width (pct 50)
                 , maxWidth (px 540)
                 ]
-            , withMediaQuery [ laptop ] [ padding (rem 4) ]
             , descendants
                 [ typeSelector "p"
                     [ maxWidth (px 432)
@@ -361,21 +366,21 @@ featureWrapper =
                 , class "title-image-wrapper"
                     [ marginLeft (rem -2)
                     , marginBottom (rem -2)
-                    , withMediaQuery [ tablet ] [ marginLeft (rem -3), marginBottom (rem -3.5) ]
                     , withMediaQuery [ laptop ] [ marginLeft (rem -4), marginBottom (rem -4.5) ]
+                    , withMediaQuery [ tablet ] [ marginLeft (rem -3), marginBottom (rem -3.5) ]
                     , descendants [ typeSelector "span" [ important (height (pct 100)) ] ]
                     ]
                 ]
             ]
         , class "main-content"
             [ marginTop (rem 2)
-            , withMediaQuery [ tablet ] [ width (pct 50), padding2 zero (rem 3), marginTop zero ]
-            , withMediaQuery [ laptop ] [ padding2 zero (rem 3.2) ]
             , withMediaQuery [ llaptop ] [ property "width" "calc( 100% - 540px )" ] -- TODO: figure out why `width (calc ((pct 100) minus (px 540)))` doesn't work
+            , withMediaQuery [ laptop ] [ padding2 zero (rem 3.2) ]
+            , withMediaQuery [ tablet ] [ width (pct 50), padding2 zero (rem 3), marginTop zero ]
             , descendants
                 [ class "lists"
-                    [ withMediaQuery [ lmobile ] [ displayFlex ]
-                    , withMediaQuery [ tablet ] [ flexDirection column ]
+                    [ withMediaQuery [ tablet ] [ flexDirection column ]
+                    , withMediaQuery [ lmobile ] [ displayFlex ]
                     , descendants
                         [ typeSelector "li"
                             [ padding2 zero (rem 1)
@@ -402,16 +407,29 @@ featureWrapper =
                         [ typeSelector "img"
                             [ important (width (px 220))
                             , important (height (px 450))
-                            , withMediaQuery [ tablet ] [ important (height (px 430)) ]
-                            , withMediaQuery [ laptop ] [ important (height (px 500)) ]
                             , withMediaQuery [ llaptop ] [ important (height (px 750)), important (width (px 370)) ]
+                            , withMediaQuery [ laptop ] [ important (height (px 500)) ]
+                            , withMediaQuery [ tablet ] [ important (height (px 430)) ]
                             ]
                         ]
-                    , withMediaQuery [ tablet ] [ width (pct 100), padding (rem 3), boxSizing borderBox ]
-                    , withMediaQuery [ laptop ] [ padding (rem 5) ]
                     , withMediaQuery [ llaptop ] [ padding2 (rem 6.4) (rem 10) ]
+                    , withMediaQuery [ laptop ] [ padding (rem 5) ]
+                    , withMediaQuery [ tablet ] [ width (pct 100), padding (rem 3), boxSizing borderBox ]
                     ]
                 ]
             ]
         ]
+    ]
+
+forground : Style
+forground =
+  batch
+    [ after
+      [ position absolute
+      , property "content" (qt "")
+      , property "background" "transparent"
+      , property "pointer-events" "none"
+      , top zero
+      , left zero
+      ]
     ]

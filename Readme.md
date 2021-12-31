@@ -1,1 +1,3 @@
-# [Inflow's Website](https://www.inflow.finance) built with elm
+# [Inflow Finance](https://www.inflow.finance)'s website built with elm
+
+## TODO: add tests

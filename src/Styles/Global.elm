@@ -41,12 +41,12 @@ globalPStyle =
     [ fontSize (rem 1.6)
     , lineHeight (num 1.75)
     , letterSpacing (px -0.04)
+    , withMediaQuery [ "only screen and (min-width: 1024px)" ]
+        [ fontSize (rem 2.4) ]
     , withMediaQuery [ "only screen and (min-width: 768px)" ]
         [ fontSize (rem 2)
         , lineHeight (num 1.62)
         ]
-    , withMediaQuery [ "only screen and (min-width: 1024px)" ]
-        [ fontSize (rem 2.4) ]
     ]
 
 globalHtmlStyle : Snippet

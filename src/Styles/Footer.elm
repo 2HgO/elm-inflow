@@ -8,7 +8,7 @@ import Styles.Constants exposing (tablet, mobile, purple, bfont)
 
 footerWrapper : Style
 footerWrapper =
-  Css.batch
+  batch
     [ paddingTop (rem 4)
     , paddingBottom (rem 5)
     , withMediaQuery [ mobile ]
@@ -16,15 +16,15 @@ footerWrapper =
     , descendants
         [ class "logo-holder"
             [ height (px 25)
-            , withMediaQuery [ mobile ] [ marginRight (rem 2) ]
             , withMediaQuery [ tablet ] [ height (px 32), marginRight (rem 6.4) ]
+            , withMediaQuery [ mobile ] [ marginRight (rem 2) ]
             ]
         ]
     ]
 
 externalLinks : Style
 externalLinks =
-  Css.batch
+  batch
     [ displayFlex
     , alignItems center
     , descendants
@@ -43,7 +43,7 @@ externalLinks =
 
 socialMediaListFooter : Style
 socialMediaListFooter =
-  Css.batch
+  batch
     [ displayFlex
     , alignItems center
     , descendants
