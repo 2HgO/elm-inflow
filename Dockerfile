@@ -6,4 +6,4 @@ WORKDIR /app
 
 COPY . .
 
-CMD ["elm", "reactor"]
+CMD ["reactor"]
