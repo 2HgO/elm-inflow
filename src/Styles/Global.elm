@@ -79,7 +79,7 @@ grotesk : Snippet
 grotesk =
   typeSelector "@font-face"
     [ property "font-family" "\"Right Grotesk\""
-    , property "src" "url(\"../../public/font-heading/PPRightGrotesk-WideMedium.otf\") format(\"woff\")"
+    , property "src" "url(\"/public/font-heading/PPRightGrotesk-WideMedium.otf\") format(\"woff\")"
     , fontStyle normal
     , fontWeight (int 400)
     , property "font-display" "fallback"
@@ -89,7 +89,7 @@ maisonNeue : Snippet
 maisonNeue =
   typeSelector "@font-face"
     [ property "font-family" "MaisonNeue"
-    , property "src" "url(\"../../public/font-body/MaisonNeue-Medium.woff\") format(\"woff\")"
+    , property "src" "url(\"/public/font-body/MaisonNeue-Medium.woff\") format(\"woff\")"
     , fontStyle normal
     , fontWeight (int 400)
     , property "font-display" "fallback"

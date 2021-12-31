@@ -1,5 +1,6 @@
 module Components.Budget exposing (view)
 
+import Css exposing (..)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (..)
 
@@ -36,7 +37,7 @@ view =
           , div [ class "main-content", class "budget-content" ]
               [ ul [ class "lists" ]
                   [ li  [ css [ track1 ] ]
-                      [ div [ class "img-holder" ] [ img [ src smbank, alt "Illustration" ] [] ]
+                      [ div [ class "img-holder" ] [ span [] [ img [ src smbank, alt "Illustration", height (pct 100), width (pct 100) ] [] ] ]
                       , h3 [ css [ subTitle ] ] [ text "Intelligent Categorization" ]
                       , p [] [ text """
                                       Inflow's machine learning models automatically sort your
@@ -46,7 +47,7 @@ view =
                               ]
                       ]
                   , li  []
-                      [ div [ class "img-holder" ] [ img [ src chart, alt "Illustration" ] [] ]
+                      [ div [ class "img-holder" ] [ span [] [ img [ src chart, alt "Illustration", height (pct 100), width (pct 100) ] [] ] ]
                       , h3 [ css [ subTitle ] ] [ text "Create custom categories" ]
                       , p [] [ text """
                                       Need to know exactly how much you're spending on car repairs

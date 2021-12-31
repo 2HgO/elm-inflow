@@ -1,5 +1,6 @@
 module Components.Insight exposing (view)
 
+import Css exposing (..)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (..)
 
@@ -39,7 +40,7 @@ view =
             , div [ class "main-content" ]
                 [ ul [ class "lists" ]
                     [ li []
-                        [ div [ class "img-holder" ] [ img [ src smbank, alt "Illustrator" ] [] ]
+                        [ div [ class "img-holder" ] [ span [] [ img [ src smbank, alt "Illustrator", height (pct 100), width (pct 100) ] [] ] ]
                         , h3 [ css [ LoaderStyles.subTitle ] ] [ text "Personalised notifications" ]
                         , p [] [ text """
                                         Stay on top of your spending with notifications from Inflow to
@@ -47,10 +48,10 @@ view =
                                         yourself.
                                       """
                               ]
-                        , div [ class "image-wrapper", class "image-wrapper-1" ] [ img [ src phonecase, alt "Illustration" ] [] ]
+                        , div [ class "image-wrapper", class "image-wrapper-1" ] [ img [ src phonecase, alt "Illustration", height (pct 100), width (pct 100) ] [] ]
                         ]
                     , li []
-                        [ div [ class "img-holder" ] [ img [ src insightimg2, alt "Illustration" ] [] ]
+                        [ div [ class "img-holder" ] [ span [] [ img [ src insightimg2, alt "Illustration", height (pct 100), width (pct 100) ] [] ] ]
                         , h3 [ css [ LoaderStyles.subTitle ] ] [ text "Inflows & Outflows" ]
                         , p [] [ text """
                                         Get a closer look by seeing how much you earned and how much
